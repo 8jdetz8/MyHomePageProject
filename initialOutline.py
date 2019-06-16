@@ -13,7 +13,7 @@ driver.get('https://www.google.com/search?q=what+is+today%27s+date')
 dateHTML = BeautifulSoup(driver.page_source, "lxml")
 date = dateHTML.find('div' , {'class': 'vk_bk dDoNo'})
 
-#TODO: Get the high temperature for midlothian for the day
+#Done: Get the high temperature for midlothian for the day
 driver.get('https://weather.com/weather/today/l/28feca8e43465556bc0c70403b638f1433c3c769a9a430f433ce81f027b5e112')
 weatherHTML = BeautifulSoup(driver.page_source, "lxml")
 weatherTable = weatherHTML.find_all('div' , {'class': 'today_nowcard-hilo'})
