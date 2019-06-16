@@ -25,7 +25,7 @@ Temps = highTempRegex.search(str(weatherTable))
 
 #TODO: Print info related to my money.
 
-#TODO: Get the top 3 posts from r/news and r/worldnews
+#Done: Get the top 3 posts from r/news and r/worldnews
 driver.get('https://www.reddit.com/r/news/')
 newsHTML = BeautifulSoup(driver.page_source, "lxml")
 newsTitles = newsHTML.find_all('h2' , {'class': 'yk4f6w-0 gRWfND'})
