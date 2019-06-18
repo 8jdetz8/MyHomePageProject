@@ -6,17 +6,15 @@ import requests, webbrowser, re, time
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 from selenium import webdriver
+import datetime
 
 driver = webdriver.Chrome(executable_path='C:\Program Files\Chrome Driver\chromedriver.exe')
 
 #TODO: Put everything in functions so it looks prettier? maybe
 
-#Done: Tell me what day it is
-
-#TODO: Complete this using a time function instead of googling.
-driver.get('https://www.google.com/search?q=what+is+today%27s+date')
-dateHTML = BeautifulSoup(driver.page_source, "lxml")
-date = dateHTML.find('div' , {'class': 'vk_bk dDoNo'})
+#Done: Complete day and time using a time module instead of googling.
+rn = datetime.datetime.today()
+rn.strftime('Today is %A, %B %d %Y')
 
 #Done: Get the high temperature for midlothian for the day
 
@@ -78,8 +76,7 @@ def hiphopheadsPosts():
 #unionPasswordInput.send_keys(Keys.ENTER)
 
 #TODO: Display everything in a better interface rather than just printing it.
-
-print('Today\'s date is' + date.text)
+print(rn.strftime('Today is %A, %B %d %Y'))
 print('The high temperature today in Midlothian is ' + Temps[0])
 print('\nIn US News: \n')
 for i in range(3):
@@ -88,3 +85,4 @@ print('\nIn World News: \n')
 for i in range(3):
     print(worldnewsTitles[i].getText())
 hiphopheadsPosts()
+
