@@ -10,33 +10,41 @@ import datetime
 
 driver = webdriver.Chrome(executable_path='C:\Program Files\Chrome Driver\chromedriver.exe')
 
-#TODO: Put everything in functions so it looks prettier? maybe
+#Done: Put everything in functions for better organization.
 
 #Done: Complete day and time using a time module instead of googling.
-rn = datetime.datetime.today()
-rn.strftime('Today is %A, %B %d %Y')
+def getDate():
+    rn = datetime.datetime.today()
+    print(rn.strftime('Today is %A, %B %d %Y'))
 
 #Done: Get the high temperature for midlothian for the day
-
-driver.get('https://weather.com/weather/today/l/28feca8e43465556bc0c70403b638f1433c3c769a9a430f433ce81f027b5e112')
-weatherHTML = BeautifulSoup(driver.page_source, "lxml")
-weatherTable = weatherHTML.find_all('div' , {'class': 'today_nowcard-hilo'})
-highTempRegex = re.compile(r'\d\d\d?')
-Temps = highTempRegex.search(str(weatherTable))
+def getHighTemp():
+    driver.get('https://weather.com/weather/today/l/28feca8e43465556bc0c70403b638f1433c3c769a9a430f433ce81f027b5e112')
+    weatherHTML = BeautifulSoup(driver.page_source, "lxml")
+    weatherTable = weatherHTML.find_all('div' , {'class': 'today_nowcard-hilo'})
+    highTempRegex = re.compile(r'\d\d\d?')
+    Temps = highTempRegex.search(str(weatherTable))
+    print('The high temperature today in Midlothian is ' + Temps[0])
 
 #TODO: Display a todo list of things I need to do(classes, hw, work)
 
 #Done: Get the top 3 posts from r/news and r/worldnews
-
-driver.get('https://www.reddit.com/r/news/')
-newsHTML = BeautifulSoup(driver.page_source, "lxml")
-newsTitles = newsHTML.find_all('h2' , {'class': 'yk4f6w-0 gRWfND'})
-driver.get('https://www.reddit.com/r/worldnews/')
-worldnewsHTML = BeautifulSoup(driver.page_source, "lxml")
-worldnewsTitles = worldnewsHTML.find_all('h2' , {'class': 'yk4f6w-0 gRWfND'})
+def getNews():
+    driver.get('https://www.reddit.com/r/news/')
+    newsHTML = BeautifulSoup(driver.page_source, "lxml")
+    newsTitles = newsHTML.find_all('h2' , {'class': 'yk4f6w-0 gRWfND'})
+    print('\nIn US News: \n')
+    for i in range(3):
+        print(newsTitles[i].getText())
+    driver.get('https://www.reddit.com/r/worldnews/')
+    worldnewsHTML = BeautifulSoup(driver.page_source, "lxml")
+    worldnewsTitles = worldnewsHTML.find_all('h2' , {'class': 'yk4f6w-0 gRWfND'})
+    print('\nIn World News: \n')
+    for i in range(3):
+        print(worldnewsTitles[i].getText())
 
 #Done: Get any new music from reddit.com/r/hiphopheads
-def hiphopheadsPosts():
+def getHHH():
     driver.get('https://www.reddit.com/r/hiphopheads/')
     hiphopheadsHTML = BeautifulSoup(driver.page_source, "lxml")
     h_all = hiphopheadsHTML.find_all('h2') #h_all is a bs4.element.resultset
@@ -76,13 +84,7 @@ def hiphopheadsPosts():
 #unionPasswordInput.send_keys(Keys.ENTER)
 
 #TODO: Display everything in a better interface rather than just printing it.
-print(rn.strftime('Today is %A, %B %d %Y'))
-print('The high temperature today in Midlothian is ' + Temps[0])
-print('\nIn US News: \n')
-for i in range(3):
-    print(newsTitles[i].getText())
-print('\nIn World News: \n')
-for i in range(3):
-    print(worldnewsTitles[i].getText())
-hiphopheadsPosts()
-
+getDate()
+getHighTemp()
+getNews()
+getHHH()
