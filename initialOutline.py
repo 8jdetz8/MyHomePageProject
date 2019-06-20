@@ -23,10 +23,10 @@ def getDate():
 def getHighTemp():
     driver.get('https://weather.com/weather/today/l/28feca8e43465556bc0c70403b638f1433c3c769a9a430f433ce81f027b5e112')
     weatherHTML = BeautifulSoup(driver.page_source, "lxml")
-    weatherTable = weatherHTML.find_all('div' , {'class': 'today_nowcard-hilo'})
-    highTempRegex = re.compile(r'\d\d\d?')
-    Temps = highTempRegex.search(str(weatherTable))
-    print('The high temperature today in Midlothian is ' + Temps[0])
+    weatherTable = weatherHTML.find_all('div' , {'class': 'today_nowcard-hilo'}) #Finding the HiandLow temperatures
+    highTempRegex = re.compile(r'\d\d\d?') #Two to three digits for temperature
+    Temps = highTempRegex.search(str(weatherTable)) 
+    print('The high temperature today in Midlothian is ' + Temps[0]) #The high temp is first in Temps, if I wanted low would use [1]
 
 #TODO: Display a todo list of things I need to do(classes, hw, work)
 
@@ -36,12 +36,12 @@ def getNews():
     newsHTML = BeautifulSoup(driver.page_source, "lxml")
     newsTitles = newsHTML.find_all('h3' , {'class': '_eYtD2XCVieq6emjKBH3m'})
     print('\nIn US News: \n')
-    for i in range(3):
+    for i in range(3):  #3 highest posts on News
         print(newsTitles[i].getText())
     driver.get('https://www.reddit.com/r/worldnews/')
     worldnewsHTML = BeautifulSoup(driver.page_source, "lxml")
     worldnewsTitles = worldnewsHTML.find_all('h3' , {'class': '_eYtD2XCVieq6emjKBH3m'})
-    print('\nIn World News: \n')
+    print('\nIn World News: \n') #3 highest posts on Worldnews
     for i in range(3):
         print(worldnewsTitles[i].getText())
 
