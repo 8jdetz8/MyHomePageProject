@@ -10,6 +10,8 @@ import datetime
 
 driver = webdriver.Chrome(executable_path='C:\Program Files\Chrome Driver\chromedriver.exe')
 
+#TODO: Find a way to avoid reddit ads
+
 #Done: Put everything in functions for better organization.
 
 #Done: Complete day and time using a time module instead of googling.
@@ -32,13 +34,13 @@ def getHighTemp():
 def getNews():
     driver.get('https://www.reddit.com/r/news/')
     newsHTML = BeautifulSoup(driver.page_source, "lxml")
-    newsTitles = newsHTML.find_all('h2' , {'class': 'yk4f6w-0 gRWfND'})
+    newsTitles = newsHTML.find_all('h3' , {'class': '_eYtD2XCVieq6emjKBH3m'})
     print('\nIn US News: \n')
     for i in range(3):
         print(newsTitles[i].getText())
     driver.get('https://www.reddit.com/r/worldnews/')
     worldnewsHTML = BeautifulSoup(driver.page_source, "lxml")
-    worldnewsTitles = worldnewsHTML.find_all('h2' , {'class': 'yk4f6w-0 gRWfND'})
+    worldnewsTitles = worldnewsHTML.find_all('h3' , {'class': '_eYtD2XCVieq6emjKBH3m'})
     print('\nIn World News: \n')
     for i in range(3):
         print(worldnewsTitles[i].getText())
@@ -47,12 +49,13 @@ def getNews():
 def getHHH():
     driver.get('https://www.reddit.com/r/hiphopheads/')
     hiphopheadsHTML = BeautifulSoup(driver.page_source, "lxml")
-    h_all = hiphopheadsHTML.find_all('h2') #h_all is a bs4.element.resultset
+    allHHHTitles = hiphopheadsHTML.find_all('h3') #allHHHTitles is a bs4.element.resultset
     result = []
-    for h in h_all:  #moving h_all text to a list
-        result.append(h.text)
+    for title in allHHHTitles:  #moving allHHHTitles text to a list
+        result.append(title.text)
     freshRegex = re.compile(r'\[Fresh(\salbum)?\]', re.IGNORECASE | re.VERBOSE) #Only want fresh and fresh album tags.
     freshStuff = list(filter(freshRegex.match, result)) #Removing everything without fresh
+    print('\nRecent music releases:')
     for i in range(len(freshStuff)):
         if len(freshStuff) == 0: #check to see if anything in list.
             print('No new music today.') 
