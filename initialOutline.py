@@ -7,6 +7,15 @@ from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import datetime
+import praw
+
+print('JD, what\'s your reddit password?')
+myPassword = input()
+reddit = praw.Reddit(client_id = 'uhtUBYZOo53vCQ', \
+                         client_secret = '3RoIQHse9V0RLKS-TGAOyW3nBFo', \
+                         user_agent = 'myhomepage', \
+                         username = 'darnellthebeast', \
+                         password = myPassword)
 
 driver = webdriver.Chrome(executable_path='C:\Program Files\Chrome Driver\chromedriver.exe')
 
@@ -32,37 +41,36 @@ def getHighTemp():
 
 #Done: Get the top 3 posts from r/news and r/worldnews
 def getNews():
-    driver.get('https://www.reddit.com/r/news/')
-    newsHTML = BeautifulSoup(driver.page_source, "lxml")
-    newsTitles = newsHTML.find_all('h3' , {'class': '_eYtD2XCVieq6emjKBH3m'})
-    print('\nIn US News: \n')
-    for i in range(3):
-        print(newsTitles[i].getText())
-    driver.get('https://www.reddit.com/r/worldnews/')
-    worldnewsHTML = BeautifulSoup(driver.page_source, "lxml")
-    worldnewsTitles = worldnewsHTML.find_all('h3' , {'class': '_eYtD2XCVieq6emjKBH3m'})
-    print('\nIn World News: \n')
-    for i in range(3):
-        print(worldnewsTitles[i].getText())
+    subreddit = reddit.subreddit('News')
+    newsPosts = []
+    for post in subreddit.hot(limit=3): #only want 3 posts
+        newsPosts.append(post.title)
+    print('\nIn US News today:\n')
+    for i in range(len(newsPosts)):
+        print(newsPosts[i])
+    subreddit = reddit.subreddit('WorldNews')
+    worldNewsPosts = []
+    for post in subreddit.hot(limit=3): #only want 3 posts
+        worldNewsPosts.append(post.title)
+    print('\nIn World News today: \n')
+    for i in range(len(worldNewsPosts)):
+        print(worldNewsPosts[i])
 
 #Done: Get any new music from reddit.com/r/hiphopheads
 def getHHH():
-    driver.get('https://www.reddit.com/r/hiphopheads/')
-    hiphopheadsHTML = BeautifulSoup(driver.page_source, "lxml")
-    allHHHTitles = hiphopheadsHTML.find_all('h3') #allHHHTitles is a bs4.element.resultset
-    result = []
-    for title in allHHHTitles:  #moving allHHHTitles text to a list
-        result.append(title.text)
-    freshRegex = re.compile(r'\[Fresh(\salbum)?\]', re.IGNORECASE | re.VERBOSE) #Only want fresh and fresh album tags.
-    freshStuff = list(filter(freshRegex.match, result)) #Removing everything without fresh
-    print('\nRecent music releases:')
-    for i in range(len(freshStuff)):
-        if len(freshStuff) == 0: #check to see if anything in list.
-            print('No new music today.') 
-        else:
-            print(freshStuff[i])
-            if i == 2: #prints up to the first three matches.
-                break
+    subreddit = reddit.subreddit('HipHopHeads')
+    HHHPosts = []
+    for post in subreddit.hot(limit=35): #looking through first 35 posts
+        HHHPosts.append(post.title) #post.title only gets titles
+    c = 0
+    print('\nRecent hip hop releases:\n')
+    for i in range(len(HHHPosts)):
+        if 'fresh' in str.lower(HHHPosts[i]) and 'video' not in str.lower(HHHPosts[i]): #dont want fresh videos
+            print(HHHPosts[i])
+            c += 1
+        if c == 3: #stop after three posts
+            break
+               
 
 
 #UNFINISHED: Get info related to my money.
