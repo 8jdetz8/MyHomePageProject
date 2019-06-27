@@ -1,0 +1,126 @@
+﻿/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+  License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.dateLabel {
+    color:black;
+    font-size: 22px;
+    padding: 4px 20px 5px 20px;
+    text-align: left;
+}
+body {
+    background-color: rgba(128, 0, 0, .25);
+}
+.actualDate {
+    color:crimson;
+    font-size: 18px;
+    padding: 11px 2px 5px 2px;
+    text-align: left;
+}
+.greeting  {
+    color: black;
+    font-size: 30px;
+    padding: 5px 0 5px 0;
+    text-align: center;
+    border: solid;
+    border-left-width: 400px;
+    border-right-width: 400px;
+    height: 40px;
+    width: auto;
+}
+.newsLabel {
+    text-align: center;
+    font-size: 34px;
+}
+.newsData > p:nth-of-type(3){
+  float: left;
+  margin: 0 1.5%;
+  width: 30%;
+  font-size: 20px;
+}
+.newsData > p:nth-of-type(2){
+  float: left;
+  margin: 0 1.5%;
+  width: 30%;
+  font-size: 20px;
+}
+.newsData > p:nth-of-type(1){
+  float: left;
+  margin: 0 1.5%;
+  width: 30%;
+  font-size: 20px;
+}
+.worldNewsLabel {
+    text-align: center;
+    font-size: 34px;
+    padding: 110px 0 10px 0
+}
+
+.worldNewsData > p:nth-of-type(3){
+  float: left;
+  margin: 0 1.5%;
+  width: 30%;
+  font-size: 20px;
+}
+.worldNewsData > p:nth-of-type(2){
+  float: left;
+  margin: 0 1.5%;
+  width: 30%;
+  font-size: 20px;
+}
+.worldNewsData > p:nth-of-type(1){
+  float: left;
+  margin: 0 1.5%;
+  width: 30%;
+  font-size: 20px;
+}
+
+.hhhData p {
+    color: darkolivegreen
+}
+.hhhLabel {
+    color: blue;
+}
