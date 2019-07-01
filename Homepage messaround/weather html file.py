@@ -93,7 +93,7 @@ reddit = praw.Reddit(client_id = 'uhtUBYZOo53vCQ', \
                          client_secret = '3RoIQHse9V0RLKS-TGAOyW3nBFo', \
                          user_agent = 'myhomepage', \
                          username = 'darnellthebeast', \
-                         password = 'Tigger99')
+                         password = 'hidden')
 #-------------------------------------------------------------------------
 #Getting news data
 #-------------------------------------------------------------------------
