@@ -74,53 +74,115 @@ body {
 .newsLabel {
     text-align: center;
     font-size: 34px;
+    position: relative;
+    bottom: 100px;
 }
-.newsData > p:nth-of-type(3){
+.newsData > a:nth-of-type(3){
   float: left;
   margin: 0 1.5%;
   width: 30%;
-  font-size: 20px;
+  font-size: 18px;
+  position: relative;
+  bottom: 100px;
+  margin-right: 0;
 }
-.newsData > p:nth-of-type(2){
+.newsData > a:nth-of-type(2){
   float: left;
   margin: 0 1.5%;
   width: 30%;
-  font-size: 20px;
+  font-size: 18px;
+  position: relative;
+  bottom: 100px;
 }
-.newsData > p:nth-of-type(1){
+.newsData > a:nth-of-type(1){
   float: left;
   margin: 0 1.5%;
   width: 30%;
-  font-size: 20px;
+  font-size: 18px;
+  position: relative;
+  bottom: 100px;
 }
 .worldNewsLabel {
     text-align: center;
     font-size: 34px;
-    padding: 110px 0 10px 0
+    padding: 110px 0 10px 0;
+    position: relative;
+    bottom: 138px
 }
 
-.worldNewsData > p:nth-of-type(3){
+.worldNewsData > a:nth-of-type(3){
   float: left;
   margin: 0 1.5%;
   width: 30%;
-  font-size: 20px;
+  font-size: 18px;
+  margin-right: 0;
+  position: relative;
+  bottom: 138px;
 }
-.worldNewsData > p:nth-of-type(2){
+.worldNewsData > a:nth-of-type(2){
   float: left;
   margin: 0 1.5%;
   width: 30%;
-  font-size: 20px;
+  font-size: 18px;
+  position: relative;
+  bottom: 138px;
 }
-.worldNewsData > p:nth-of-type(1){
+.worldNewsData > a:nth-of-type(1){
   float: left;
   margin: 0 1.5%;
   width: 30%;
-  font-size: 20px;
+  font-size: 18px;
+  position: relative;
+  bottom: 138px;
 }
 
 .hhhData p {
-    color: darkolivegreen
+    color: darkolivegreen;
+    position: relative;
+    width: 250px;
+}
+.hhhdata p:nth-of-type(1){
+    bottom: 295px;
+    left: 1010px;
+    word-wrap: break-word
+}
+.hhhData p:nth-of-type(2){
+    bottom: 295px;
+    left: 1010px;
+    word-wrap: break-word
+}
+.hhhData p:nth-of-type(3){
+    bottom: 295px;
+    left: 1010px;
+    word-wrap: break-word
 }
 .hhhLabel {
     color: blue;
+    position: relative;
+    bottom: 300px;
+    left: 1010px;
+    width: 250px;
+    word-wrap: break-word
+}
+.weather img{
+    max-width: 80%;
+    width: 400px;
+    float: inherit;
+}
+html, body {
+    max-width: 100%;
+}
+.xkcd {
+    position: relative;
+    left: 450px;
+    bottom: 250px;
+    width: 390px;
+    font-size: 24px;
+}
+.feeArticle {
+    position: relative;
+    left: 450px;
+    bottom: 240px;
+    width: 350px;
+    font-size: 24px;
 }
