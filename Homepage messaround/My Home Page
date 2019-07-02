@@ -10,6 +10,15 @@ import praw
 from PIL import Image
 import urllib.request
 
+#-------------------------------------------------------------------------
+#Setting up reddit data scraping
+#-------------------------------------------------------------------------
+reddit = praw.Reddit(client_id = 'uhtUBYZOo53vCQ', \ #Put your information here
+                         client_secret = '3RoIQHse9V0RLKS-TGAOyW3nBFo', \ #Put your information here
+                         user_agent = 'myhomepage', \
+                         username = 'darnellthebeast', \ #Put your information here
+                         password = 'hidden') #Put your information here
+
 template = '''
 <html lang="en">
   <head>
