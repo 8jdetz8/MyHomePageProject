@@ -13,11 +13,11 @@ import urllib.request
 #-------------------------------------------------------------------------
 #Setting up reddit data scraping
 #-------------------------------------------------------------------------
-reddit = praw.Reddit(client_id = 'uhtUBYZOo53vCQ', \ #Put your information here
-                         client_secret = '3RoIQHse9V0RLKS-TGAOyW3nBFo', \ #Put your information here
+reddit = praw.Reddit(client_id = 'uhtUBYZOo53vCQ', \
+                         client_secret = '#Your input here', \
                          user_agent = 'myhomepage', \
-                         username = 'darnellthebeast', \ #Put your information here
-                         password = 'hidden') #Put your information here
+                         username = '#Your username here', \
+                         password = '#Your password here')
 
 template = '''
 <html lang="en">
@@ -95,14 +95,6 @@ cropped = imageObject.crop((225, 295, 1150, 770))
 cropped.save("C://Users/Student/Desktop/MyHomePageProject/Homepage messaround/sample_screenshot.png")
 #925x473
 #1554x794
-#-------------------------------------------------------------------------
-#Setting up reddit data scraping
-#-------------------------------------------------------------------------
-reddit = praw.Reddit(client_id = 'uhtUBYZOo53vCQ', \
-                         client_secret = '3RoIQHse9V0RLKS-TGAOyW3nBFo', \
-                         user_agent = 'myhomepage', \
-                         username = 'darnellthebeast', \
-                         password = 'hidden')
 #-------------------------------------------------------------------------
 #Getting news data
 #-------------------------------------------------------------------------
