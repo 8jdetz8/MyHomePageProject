@@ -83,11 +83,6 @@ rn = datetime.datetime.today()
 #Getting the weather
 #-------------------------------------------------------------------------
 driver = webdriver.Chrome(executable_path='C:\\Users\Student\AppData\Local\Programs\Python\Python37-32\chromedriver\chromedriver.exe')
-#driver.get('https://weather.com/weather/today/l/28feca8e43465556bc0c70403b638f1433c3c769a9a430f433ce81f027b5e112')
-#weatherHTML = BeautifulSoup(driver.page_source, "lxml")
-#weatherTable = weatherHTML.find_all('div' , {'class': 'today_nowcard-hilo'})
-#highTempRegex = re.compile(r'\d\d\d?')
-#Temps = highTempRegex.search(str(weatherTable))
 driver.get('https://www.google.com/search?q=weather+in+midlothian+va')
 driver.save_screenshot('sample_screenshot.png')
 imageObject = Image.open("C://Users/Student/Desktop/MyHomePageProject/Homepage messaround/sample_screenshot.png")
