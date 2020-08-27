@@ -14,10 +14,10 @@ import urllib.request
 #Setting up reddit data scraping
 #-------------------------------------------------------------------------
 reddit = praw.Reddit(client_id = 'uhtUBYZOo53vCQ', \
-                         client_secret = '3RoIQHse9V0RLKS-TGAOyW3nBFo', \
+                         client_secret = 'your secret ID here', \
                          user_agent = 'myhomepage', \
-                         username = 'Darnellthebeast', \
-                         password = 'Darnell99')
+                         username = 'your username here', \
+                         password = 'your password here')
 
 template = '''
 <html lang="en">
