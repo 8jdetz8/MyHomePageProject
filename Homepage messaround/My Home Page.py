@@ -14,10 +14,10 @@ import urllib.request
 #Setting up reddit data scraping
 #-------------------------------------------------------------------------
 reddit = praw.Reddit(client_id = 'uhtUBYZOo53vCQ', \
-                         client_secret = '#Your input here', \
+                         client_secret = '3RoIQHse9V0RLKS-TGAOyW3nBFo', \
                          user_agent = 'myhomepage', \
-                         username = '#Your username here', \
-                         password = '#Your password here')
+                         username = 'Darnellthebeast', \
+                         password = 'Darnell99')
 
 template = '''
 <html lang="en">
@@ -85,9 +85,9 @@ rn = datetime.datetime.today()
 driver = webdriver.Chrome(executable_path='C:\\Users\Student\AppData\Local\Programs\Python\Python37-32\chromedriver\chromedriver.exe')
 driver.get('https://www.google.com/search?q=weather+in+midlothian+va')
 driver.save_screenshot('sample_screenshot.png')
-imageObject = Image.open("C://Users/Student/Desktop/MyHomePageProject/Homepage messaround/sample_screenshot.png")
+imageObject = Image.open("C://Users/Student/MyHomePageProject/Homepage messaround/sample_screenshot.png")
 cropped = imageObject.crop((225, 295, 1150, 770))
-cropped.save("C://Users/Student/Desktop/MyHomePageProject/Homepage messaround/sample_screenshot.png")
+cropped.save("C://Users/Student/MyHomePageProject/Homepage messaround/sample_screenshot.png")
 #925x473
 #1554x794
 #-------------------------------------------------------------------------
